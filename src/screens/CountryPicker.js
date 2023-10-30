@@ -96,6 +96,7 @@ export const CountryPicker = (props) => {
                 animated={true}
                 animationType={'slide'}
                 transparent
+                onRequestClose={() => {setVisible(false)}}
             >
                 <DialogCountry
                     onSelectItem={(data) => { onSelect(data) }}

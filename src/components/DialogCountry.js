@@ -6,8 +6,7 @@ import {
 	FlatList,
 	TextInput,
 	Text,
-	Image,
-	BackHandler
+	Image
 } from 'react-native';
 import Fuse from 'fuse.js'
 import { Colors } from "../styles";
@@ -35,18 +34,11 @@ export const DialogCountry = (props) => {
 	const { itemStyle = {}, container, searchStyle, tileStyle } = modalStyle;
 	const { showFlag = true, showCallingCode = true, showCountryName = true, showCountryCode = true, } = modalConfig;
 
-	const { itemContainer, flagStyle, countryCodeStyle, countryNameStyle, callingNameStyle } = itemStyle;
+	const { itemContainer, flagStyle, countryCodeStyle, countryNameStyle, callingNameStyle } = itemStyle;	
 
-	const backAction = () => {
-		setVisible(false)
-		return true;
-	};
-
-	useEffect(() => {
-		BackHandler.addEventListener("hardwareBackPress", backAction);
+	useEffect(() => {	
 		return () => {
-			setSearch("");
-			BackHandler.removeEventListener("hardwareBackPress", backAction);
+			setSearch("");			
 		}
 	}, []);
 
